@@ -16,9 +16,9 @@ def bye():
 
 @app.route('/occupation')
 def occupation():
-    from occupations import readFile, getOccupation
+    from occupations import readFile, getOccupation, getOccupationLink
     occupationDict = readFile()
-    return render_template('occupation.html', occupationData=occupationDict, randomOccupation=getOccupation())
+    return render_template('occupation.html', occupationData=occupationDict, randomOccupation=getOccupation(), occupationLink=getOccupationLink())
 
 if __name__ == '__main__':
     app.run()

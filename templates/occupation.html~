@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Occupation File</title>
+  </head>
+
+  <body>
+    <h1>Distribution of occupations</h1>
+    <table border=1>
+      {% for occupation, percentages in occupationData.items() %}
+      <tr>
+	<td>{{ occupation }}</td>
+	<td>{{ percentages }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    Lucky occupation: <a href="{{occupationLink[occupation]}}"> {{randomOccupation}}
+   </body>
+</html>

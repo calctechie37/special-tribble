@@ -1,7 +1,7 @@
 from random import random
 from collections import OrderedDict
 
-def readFile(spliceData=False):
+def readFile():
     try:
         with open('occupations.csv') as file_:
             instream = file_.readlines()
@@ -35,6 +35,22 @@ def getOccupation():
             return i
         beginningValue += value
 
+def getOccupationLink():
+    try:
+        with open('occupationLinks.csv') as file_:
+            instream = file_.readlines()
+        occupationLinks = {}
+        for line in instream:
+            line = line.strip('\r\n')
+            link = line[line.rfind(',') + 1:]
+            jobClass = line[:line.rfind(',')]
+            occupationLinks[jobClass] = link
+        return occupationLinks
+    except (OSError, IOError) as e:
+        print "File not found..."
+    except Exception:
+        print 'Unknown error occured'
+            
 if __name__ == '__main__':
     result = {}
     for i in xrange(100):
